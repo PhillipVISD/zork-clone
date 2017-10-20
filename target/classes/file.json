@@ -1,9 +1,7 @@
 {
   "scenario": {
 	"objs": {
-	  "house": {
-
-	  }
+	  "house": "test.class"
 	}
   }
 }

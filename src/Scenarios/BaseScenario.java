@@ -3,6 +3,8 @@ package Scenarios;
 import Objects.BaseObject;
 import org.json.simple.JSONObject;
 
+import java.io.File;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.function.BiConsumer;
 
@@ -21,8 +23,12 @@ abstract public class BaseScenario extends BaseObject {
 	public static BaseObject fromJson(JSONObject json) {
 		JSONObject objsJson = (JSONObject) json.get("scenario");
 		objsJson = (JSONObject) objsJson.get("objs");
-		BiConsumer<String, JSONObject> bc = (String key, JSONObject value) ->
-				System.out.println(key + " : " + value.toJSONString());
+		BiConsumer<String, String> bc = (String key, String value) -> {
+			System.out.println(key + " : " + value);
+			File file = new File("./");
+			ClassLoader cl = new URLClassLoader(urls);
+
+		};
 		objsJson.forEach(bc);
 		return new JSONScenario(null);
 	}
