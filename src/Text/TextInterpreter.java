@@ -1,5 +1,6 @@
 package Text;
 
+import Objects.BaseJSONObject;
 import Objects.BaseObject;
 import Player.Player;
 import opennlp.tools.postag.POSModel;
@@ -8,7 +9,6 @@ import opennlp.tools.tokenize.Tokenizer;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -17,31 +17,53 @@ import java.util.List;
 import java.util.Map;
 
 public class TextInterpreter {
-	private Player player;
-	private Tokenizer tokenizer = null;
-	private POSTaggerME tagger = null;
+	public Player player;
+	public Tokenizer tokenizer = null;
+	public POSTaggerME tagger = null;
 
-	public TextInterpreter(Player player) throws IOException {
+	public TextInterpreter(Player player, Boolean initVars) throws IOException {
 		this.player = player;
 
-		System.out.print("Loading NLP file... ");
+		if (initVars) {
+			System.out.print("Loading NLP file... ");
 
-		POSTaggerME tagger = null;
-		Tokenizer tokenizer = null;
-
-		try (InputStream modelIn = new FileInputStream("en-token.bin")) {
-			TokenizerModel tokenizerModel = new TokenizerModel(modelIn);
-			tokenizer = new TokenizerME(tokenizerModel);
-		}
-
-		try (InputStream modelIn = new FileInputStream("en-pos-maxent.bin")) {
-			POSModel model = new POSModel(modelIn);
-			tagger = new POSTaggerME(model);
+			this.tagger = this.getTagger();
+			this.tokenizer = this.getTokenizer();
 			System.out.println("Done");
 		}
+	}
 
-		this.tagger = tagger;
-		this.tokenizer = tokenizer;
+	public static Tokenizer getTokenizer() {
+		Tokenizer tokenizer = null;
+
+		try (InputStream modelIn = TextInterpreter.class.getResourceAsStream("en-token.bin")) {
+			TokenizerModel tokenizerModel = new TokenizerModel(modelIn);
+			tokenizer = new TokenizerME(tokenizerModel);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return tokenizer;
+	}
+
+	public static POSTaggerME getTagger() {
+		POSTaggerME tagger = null;
+
+		try (InputStream modelIn = TextInterpreter.class.getResourceAsStream("en-pos-maxent.bin")) {
+			POSModel model = new POSModel(modelIn);
+			tagger = new POSTaggerME(model);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return tagger;
+	}
+
+	public static String interpret(String interpretStr, Tokenizer tokenizer, POSTaggerME tagger, Player player) throws IOException {
+		TextInterpreter ti = new TextInterpreter(player, false);
+		ti.tokenizer = tokenizer;
+		ti.tagger = tagger;
+		return ti.interpret(interpretStr);
 	}
 
 	public String interpret(String interpretStr) {
@@ -52,6 +74,8 @@ public class TextInterpreter {
 
 		String verb = null;
 		ArrayList<String> subjects = null;
+
+		Boolean wasNoun = false;
 
 		for (int i = 0; i < words.length; i++) {
 			String word = words[i];
@@ -64,14 +88,22 @@ public class TextInterpreter {
 				} else {
 					verb = word;
 				}
+				wasNoun = false;
 			} else if (tag.toLowerCase().startsWith("nn")) {
-				if (subjects != null) {
+				if (wasNoun) {
+					subjects.set(subjects.size() - 1, subjects.get(subjects.size() - 1) + " " + word);
+				}
+				else if (subjects != null) {
 					subjects.add(word);
 				} else {
 					subjects = new ArrayList<String>();
 					subjects.add(word);
 				}
+				wasNoun = true;
 //				System.out.println(word);
+			}
+			else {
+				wasNoun = false;
 			}
 
 //			System.out.println(word + " : " + tag);
@@ -133,18 +165,22 @@ public class TextInterpreter {
 		verb = verb.toLowerCase();
 		String response;
 
-		if (verb.equals("pick")) {
-			response = subjectObj.pickup(player);
-		} else if (verb.equals("enter")) {
-			response = subjectObj.enter(player);
-		}
-//		else if (verb.equals("exit") || verb.equals("leave")) {
-//			response = subjectObj.exit(player);
+		BaseJSONObject jsonObj = (BaseJSONObject) subjectObj;
+
+		return jsonObj.verbAction(verb, player);
+
+//		if (verb.equals("pick")) {
+//			response = subjectObj.pickup(player);
+//		} else if (verb.equals("enter")) {
+//			response = subjectObj.enter(player);
 //		}
-		else {
-			response = subjectObj.illegal();
-		}
-		return response;
+////		else if (verb.equals("exit") || verb.equals("leave")) {
+////			response = subjectObj.exit(player);
+////		}
+//		else {
+//			response = subjectObj.illegal();
+//		}
+//		return response;
 	}
 
 	private String[] removeFromStringFromArray(String[] arr, String remove) {

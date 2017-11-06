@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>game</groupId>
+  <artifactId>zork-clone</artifactId>
+  <version>0.02</version>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  <repositories>
+    <repository>
+      <id>opennlp.sf.net</id>
+      <url>http://opennlp.sourceforge.net/maven2</url>
+    </repository>
+    <repository>
+      <id>mvnrepo.com/commons-cli</id>
+      <url>https://mvnrepository.com/artifact/commons-cli/commons-cli</url>
+    </repository>
+    <repository>
+      <id>mvnrepo.com/jython</id>
+      <url>https://mvnrepository.com/artifact/org.python/jython</url>
+    </repository>
+    <repository>
+      <id>mvnrepo.com/gson</id>
+      <url>https://mvnrepository.com/artifact/com.google.code.gson/gson</url>
+    </repository>
+  </repositories>
+</project>
+

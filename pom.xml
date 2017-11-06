@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>game</groupId>
     <artifactId>zork-clone</artifactId>
-    <version>0.1</version>
+    <version>0.02</version>
     <build>
         <plugins>
             <plugin>
@@ -14,6 +14,19 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -32,12 +45,26 @@
             <url>https://mvnrepository.com/artifact/commons-cli/commons-cli</url>
         </repository>
         <repository>
+            <id>mvnrepo.com/jython</id>
+            <url>https://mvnrepository.com/artifact/org.python/jython</url>
+        </repository>
+        <repository>
             <id>mvnrepo.com/gson</id>
             <url>https://mvnrepository.com/artifact/com.google.code.gson/gson</url>
         </repository>
     </repositories>
 
     <dependencies>
+        <!--<dependency>-->
+            <!--<groupId>org.apache.opennlp</groupId>-->
+            <!--<artifactId>opennlp-tools</artifactId>-->
+            <!--<version>1.8.3</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>org.python</groupId>
+            <artifactId>jython</artifactId>
+            <version>2.7.0</version>
+        </dependency>
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>

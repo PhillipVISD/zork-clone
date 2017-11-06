@@ -16,6 +16,9 @@ import java.io.InputStream;
 public class Game {
 
 	public static void main(String[] args) throws IOException, ParseException, org.apache.commons.cli.ParseException, ClassNotFoundException {
+//		DynamicManager dm = new DynamicManager("Test");
+//
+//		System.out.println(dm.method("hello", "fred", null));
 
 		Options options = new Options();
 		options.addOption("json", true, "pass a valid JSON file to run your own story.");
@@ -40,7 +43,7 @@ public class Game {
 			scenario = BaseScenario.getRandomScenario();
 		}
 
-		TextInterpreter ti = new TextInterpreter(new Player( scenario, "Joe"));
+		TextInterpreter ti = new TextInterpreter(new Player( scenario, "Joe"), true);
 
 		System.out.println("Welcome to Zork Clone\n");
 
@@ -50,12 +53,18 @@ public class Game {
 
 		System.out.println("\n" + ti.getPlayer().scenario.describe() + "\n");
 
+//		PythonInterpreter interpreter = new PythonInterpreter();
+		// ^ Only works because of Lib in C:\Users\cutter.phillip\.m2\repository\org\python\jython\2.7.0
+
 		while (true) {
 			String input = tp.read("> ").trim();
 			if (input.equals("exit")) {
 				break;
 			}
 			else {
+//				PyObject resp = interpreter.eval(input);
+//				String pyResp = (String) resp.__str__().__tojava__(String.class);
+//				System.out.println(pyResp);
 				String response = ti.interpret(input);
 				if (response != null) {
 					System.out.println(response);

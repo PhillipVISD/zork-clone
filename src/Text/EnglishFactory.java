@@ -30,10 +30,13 @@ public class EnglishFactory {
 				englishStr.append(item);
 			}
 			else if (lastItem) {
-				englishStr.append("and").append(item);
+				englishStr.append("and ").append(item);
+			}
+			else if (objects.size() > 2) {
+				englishStr.append(item).append(", ");
 			}
 			else {
-				englishStr.append(item).append(", ");
+				englishStr.append(item).append(" ");
 			}
 		}
 		englishStr.append(".");

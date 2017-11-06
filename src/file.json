@@ -1,7 +1,65 @@
 {
   "scenario": {
 	"objs": {
-	  "house": "test.class"
+	  "sword": {
+		"methods": {
+		  "grab": {
+			"responses": [
+			  "You pickup the sword and feel the looming weight in your hands."
+			],
+			"valid": true
+		  },
+		  "throw": {
+			"valid": true
+		  }
+		},
+		"objs": {
+
+		},
+		"determiner": "a",
+		"animate": false,
+		"preDesc": "heavy silver",
+		"postDesc": ""
+	  },
+	  "office building": {
+		"methods": {
+		  "grab": {
+			"responses": [
+			  "You pickup the sword and feel the looming weight in your hands."
+			],
+			"valid": true
+		  },
+		  "enter": {
+			"responses": [
+			  "You enter the office b"
+			]
+
+		  }
+		},
+		"objs": {
+		  "sword": {
+			"methods": {
+			  "grab": {
+				"responses": [
+				  "You pickup the sword and feel the looming weight in your hands."
+				],
+				"valid": true
+			  }
+			},
+			"objs": {
+
+			},
+			"determiner": "a",
+			"animate": false,
+			"preDesc": "heavy silver",
+			"postDesc": ""
+		  }
+		},
+		"determiner": "a",
+		"animate": false,
+		"preDesc": "large bland",
+		"postDesc": ""
+	  }
 	}
   }
 }
