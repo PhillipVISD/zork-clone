@@ -1,11 +1,13 @@
 package Scenarios;
 
+import Dynamic.DynamicManager;
 import Objects.BaseJSONObject;
 import Objects.BaseObject;
 import Util.JSON;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.function.BiConsumer;
 
@@ -28,7 +30,7 @@ abstract public class BaseScenario extends BaseObject {
 
 		for (Object o : objsJson.keySet()) {
 			JSONObject objJson = (JSONObject) objsJson.get(o);
-			BaseObject object = objFromJson(o.toString(), objJson);
+			BaseObject object = objFromJson(o.toString(), objJson, json);
 			objs.add(object);
 		}
 
@@ -37,7 +39,7 @@ abstract public class BaseScenario extends BaseObject {
 		return scenario;
 	}
 
-	private static BaseObject objFromJson(String object, JSONObject infoJson) {
+	private static BaseObject objFromJson(String object, JSONObject infoJson, JSONObject baseJson) {
 		String determiner = (String) infoJson.getOrDefault("determiner", "a");
 		Boolean animate = (Boolean) infoJson.getOrDefault("animate", false);
 		Boolean canContain = infoJson.getOrDefault("objs", null) != null;
@@ -48,13 +50,24 @@ abstract public class BaseScenario extends BaseObject {
 		ArrayList<BaseObject> objs = new ArrayList<>();
 		if (infoJson.getOrDefault("objs", null) != null) {
 			BiConsumer<String, JSONObject> objsBC = (String objName, JSONObject objInfoJson) -> {
-				objs.add(objFromJson(objName, objInfoJson));
+				objs.add(objFromJson(objName, objInfoJson, baseJson));
 			};
 			JSONObject objObjs = (JSONObject) infoJson.get("objs");
 			objObjs.forEach(objsBC);
 		}
 
-		BaseJSONObject jsonObj = new BaseJSONObject(name, determiner, animate, canContain, objs, preDesc, postDesc);
+		String customBehaviour = (String) baseJson.getOrDefault("customBehaviour", null);
+		DynamicManager dm = null;
+
+		if (customBehaviour != null) {
+			try {
+				dm = new DynamicManager(customBehaviour);
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		BaseJSONObject jsonObj = new BaseJSONObject(name, determiner, animate, canContain, objs, preDesc, postDesc, dm);
 
 		ArrayList<BaseObject> objArr = new ArrayList<>();
 

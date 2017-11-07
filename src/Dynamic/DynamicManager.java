@@ -19,7 +19,7 @@ public class DynamicManager {
 
 		URL[] urls = {url};
 
-		System.out.println(url.toString());
+//		System.out.println(url.toString());
 
 		ClassLoader classLoader = new URLClassLoader(urls);
 
@@ -33,7 +33,7 @@ public class DynamicManager {
 	public DynamicPL method(String name, String verb, Player player) {
 		DynamicPL out = null;
 		try {
-			Method m = this.cls.getMethod(name, String.class);
+			Method m = this.cls.getMethod(name, DynamicPL.class);
 			DynamicPL payload = new DynamicPL();
 			payload.setIn(verb, player);
 			out = (DynamicPL) m.invoke(null, (Object) payload);

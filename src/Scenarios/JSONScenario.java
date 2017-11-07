@@ -5,6 +5,7 @@ import Objects.BaseObject;
 import java.util.ArrayList;
 
 public class JSONScenario extends BaseScenario {
+
 	public JSONScenario(ArrayList<BaseObject> objs) {
 		super(objs);
 	}

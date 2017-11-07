@@ -1,4 +1,5 @@
 {
+  "customBehaviour": "Test",
   "scenario": {
 	"objs": {
 	  "sword": {

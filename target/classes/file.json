@@ -28,6 +28,12 @@
 			  "You pickup the sword and feel the looming weight in your hands."
 			],
 			"valid": true
+		  },
+		  "enter": {
+			"responses": [
+			  "You enter the office b"
+			]
+
 		  }
 		},
 		"objs": {

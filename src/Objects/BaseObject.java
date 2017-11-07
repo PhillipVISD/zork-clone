@@ -32,7 +32,7 @@ abstract public class BaseObject {
 	}
 
 	public static BaseObject fromJson(JSONObject jsonObj) {
-		return new BaseJSONObject("a", "a", true, true, new ArrayList<BaseObject>(), "a", "a");
+		return new BaseJSONObject("a", "a", true, true, new ArrayList<BaseObject>(), "a", "a", dm);
 	}
 
 	public ArrayList<BaseObject> getGameObjects() {

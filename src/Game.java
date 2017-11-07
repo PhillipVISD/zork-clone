@@ -16,10 +16,6 @@ import java.io.InputStream;
 public class Game {
 
 	public static void main(String[] args) throws IOException, ParseException, org.apache.commons.cli.ParseException, ClassNotFoundException {
-//		DynamicManager dm = new DynamicManager("Test");
-//
-//		System.out.println(dm.method("hello", "fred", null));
-
 		Options options = new Options();
 		options.addOption("json", true, "pass a valid JSON file to run your own story.");
 

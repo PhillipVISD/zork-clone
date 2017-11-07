@@ -1,5 +1,6 @@
 package Objects;
 
+import Dynamic.DynamicManager;
 import Player.Player;
 
 import java.util.ArrayList;
@@ -8,8 +9,11 @@ import java.util.Random;
 
 
 public class BaseJSONObject extends BaseObject {
+
+	DynamicManager dm;
+
 	public BaseJSONObject(String name, String determiner, Boolean animate, Boolean canContain,
-	                      ArrayList<BaseObject> objs, String preDesc, String postDesc) {
+	                      ArrayList<BaseObject> objs, String preDesc, String postDesc, DynamicManager dm) {
 		super(name, "a", false, true, objs);
 		if (preDesc != null && preDesc.equals("")) {
 			preDesc = null;
@@ -20,6 +24,7 @@ public class BaseJSONObject extends BaseObject {
 		this.preDesc = preDesc;
 		this.postDesc = postDesc;
 		this.canContain = canContain;
+		this.dm = dm;
 	}
 
 	public HashMap<String, String[]> behaviour = new HashMap<>();
