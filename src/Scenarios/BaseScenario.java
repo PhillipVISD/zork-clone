@@ -7,7 +7,6 @@ import Util.JSON;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.function.BiConsumer;
 
@@ -60,21 +59,23 @@ abstract public class BaseScenario extends BaseObject {
 		DynamicManager dm = null;
 
 		if (customBehaviour != null) {
-			try {
-				dm = new DynamicManager(customBehaviour);
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-			}
+			dm = new DynamicManager(customBehaviour);
 		}
 
-		BaseJSONObject jsonObj = new BaseJSONObject(name, determiner, animate, canContain, objs, preDesc, postDesc, dm);
+		BaseJSONObject jsonObj = new BaseJSONObject(name, determiner, animate, canContain, objs, preDesc, postDesc);
 
 		ArrayList<BaseObject> objArr = new ArrayList<>();
 
 //			System.out.println(key + " : " + value);
 		BiConsumer<String, JSONObject> actionsBC = (String action, JSONObject actionJson) -> {
 			JSONArray responses = (JSONArray) actionJson.getOrDefault("responses", new JSONArray());
-			jsonObj.addBehaviour(action, JSON.toStringArray(responses));
+			String classStr = (String) actionJson.getOrDefault("class", null);
+			if (classStr != null) {
+				jsonObj.addClassBehaviour(action, classStr);
+			}
+			else{
+				jsonObj.addBehaviour(action, JSON.toStringArray(responses));
+			}
 		};
 		JSONObject actionsJson = (JSONObject) infoJson.get("methods");
 		actionsJson.forEach(actionsBC);

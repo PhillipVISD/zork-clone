@@ -27,4 +27,14 @@ public class Player {
 			return this.scenario;
 		}
 	}
+
+	public void addToInventory(BaseObject object) {
+		if (this.inventory == null) {
+			this.inventory = new ArrayList<>();
+			this.inventory.add(object);
+		}
+		else {
+			this.inventory.add(object);
+		}
+	}
 }

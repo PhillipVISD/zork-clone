@@ -1,5 +1,6 @@
 package Dynamic;
 
+import Objects.BaseObject;
 import Player.Player;
 
 import java.io.File;
@@ -12,10 +13,15 @@ import java.net.URLClassLoader;
 public class DynamicManager {
 	public Class cls;
 
-	public DynamicManager(String className) throws MalformedURLException {
+	public DynamicManager(String className) {
 //		ClassLoader classLoader = new URLClassLoader(new URL[] {new URL("file:/C:\\Users\\cutter.phillip\\Documents\\Zork Clone")});
 
-		URL url = new File(System.getProperty("user.dir")).toURI().toURL();
+		URL url = null;
+		try {
+			url = new File(System.getProperty("user.dir")).toURI().toURL();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 
 		URL[] urls = {url};
 
@@ -30,12 +36,12 @@ public class DynamicManager {
 		}
 	}
 
-	public DynamicPL method(String name, String verb, Player player) {
+	public DynamicPL method(BaseObject object, String verb, Player player) {
 		DynamicPL out = null;
 		try {
-			Method m = this.cls.getMethod(name, DynamicPL.class);
+			Method m = this.cls.getMethod(verb, DynamicPL.class);
 			DynamicPL payload = new DynamicPL();
-			payload.setIn(verb, player);
+			payload.setIn(verb, player, object);
 			out = (DynamicPL) m.invoke(null, (Object) payload);
 		} catch (NoSuchMethodException e) {
 			e.printStackTrace();

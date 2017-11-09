@@ -1,4 +1,5 @@
 {
+  "customBehaviour": "Test",
   "scenario": {
 	"objs": {
 	  "sword": {
@@ -7,7 +8,8 @@
 			"responses": [
 			  "You pickup the sword and feel the looming weight in your hands."
 			],
-			"valid": true
+			"valid": true,
+			"class": "Test"
 		  },
 		  "throw": {
 			"valid": true
