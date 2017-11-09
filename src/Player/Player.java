@@ -2,6 +2,7 @@ package Player;
 
 import Objects.BaseObject;
 import Scenarios.BaseScenario;
+import Text.EnglishFactory;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,10 @@ public class Player {
 		else {
 			return this.scenario;
 		}
+	}
+
+	public String describeInventory() {
+		return EnglishFactory.fromGameObjs(this.inventory);
 	}
 
 	public void addToInventory(BaseObject object) {

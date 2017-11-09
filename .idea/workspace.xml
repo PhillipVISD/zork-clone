@@ -2,24 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee98fcc0-2dab-4bcc-92c7-0fa526e820a5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/original-zork-clone-0.02.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/zork-clone-0.02.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CustomJ/src/zork-clone-0.02.jar" afterPath="$PROJECT_DIR$/CustomJ/src/zork-clone-0.02.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Dynamic/DynamicManager.class" afterPath="$PROJECT_DIR$/target/classes/Dynamic/DynamicManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Game.class" afterPath="$PROJECT_DIR$/target/classes/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Objects/BaseJSONObject.class" afterPath="$PROJECT_DIR$/target/classes/Objects/BaseJSONObject.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Scenarios/BaseScenario.class" afterPath="$PROJECT_DIR$/target/classes/Scenarios/BaseScenario.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Scenarios/JSONScenario.class" afterPath="$PROJECT_DIR$/target/classes/Scenarios/JSONScenario.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CustomJ/src/zork-clone-0.02.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Dynamic/DynamicManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/Player/Player.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/CustomJ/src/Test.java" afterPath="$PROJECT_DIR$/CustomJava/src/Test.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test.class" afterPath="$PROJECT_DIR$/Test.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/original-zork-clone-0.02.jar" afterPath="$PROJECT_DIR$/target/original-zork-clone-0.02.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/zork-clone-0.02.jar" afterPath="$PROJECT_DIR$/target/zork-clone-0.02.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CustomJ/src/Test.java" afterPath="$PROJECT_DIR$/CustomJ/src/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Dynamic/DynamicManager.java" afterPath="$PROJECT_DIR$/src/Dynamic/DynamicManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Dynamic/DynamicPL.java" afterPath="$PROJECT_DIR$/src/Dynamic/DynamicPL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Objects/BaseJSONObject.java" afterPath="$PROJECT_DIR$/src/Objects/BaseJSONObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Objects/BaseObject.java" afterPath="$PROJECT_DIR$/src/Objects/BaseObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Player/Player.java" afterPath="$PROJECT_DIR$/src/Player/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scenarios/BaseScenario.java" afterPath="$PROJECT_DIR$/src/Scenarios/BaseScenario.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/file.json" afterPath="$PROJECT_DIR$/src/file.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/file.json" afterPath="$PROJECT_DIR$/target/classes/file.json" />
     </list>
     <ignored path="$PROJECT_DIR$/OpenNLP/target/" />
     <ignored path="$PROJECT_DIR$/tools/target/" />
@@ -42,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DynamicManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DynamicManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Dynamic/DynamicManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="42" column="48" lean-forward="true" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+            <state relative-caret-position="271">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -64,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CustomJ/src/Test.java">
+      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomJava/src/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+            <state relative-caret-position="290">
+              <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -79,8 +70,8 @@
       <file leaf-file-name="BaseJSONObject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Objects/BaseJSONObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="55" column="45" lean-forward="false" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
+            <state relative-caret-position="203">
+              <caret line="59" column="15" lean-forward="false" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -89,9 +80,12 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Player/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-              <folding />
+            <state relative-caret-position="272">
+              <caret line="32" column="59" lean-forward="false" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
+              <folding>
+                <element signature="e#646#647#0" expanded="true" />
+                <element signature="e#703#704#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,6 +97,18 @@
               <caret line="11" column="58" lean-forward="false" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="file.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/file.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+              <folding>
+                <element signature="n#!!block;n#office building#0;n#!!block;n#objs#0;n#!!block;n#scenario#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -188,9 +194,10 @@
         <option value="$PROJECT_DIR$/src/Scenarios/BaseScenario.java" />
         <option value="$PROJECT_DIR$/src/Dynamic/DynamicPL.java" />
         <option value="$PROJECT_DIR$/src/Objects/BaseJSONObject.java" />
-        <option value="$PROJECT_DIR$/src/Dynamic/DynamicManager.java" />
-        <option value="$PROJECT_DIR$/src/Player/Player.java" />
         <option value="$PROJECT_DIR$/CustomJ/src/Test.java" />
+        <option value="$PROJECT_DIR$/CustomJava/src/Test.java" />
+        <option value="$PROJECT_DIR$/src/Player/Player.java" />
+        <option value="$PROJECT_DIR$/src/Dynamic/DynamicManager.java" />
       </list>
     </option>
   </component>
@@ -332,12 +339,12 @@
             <path>
               <item name="Zork Clone" type="b2602c69:ProjectViewProjectNode" />
               <item name="Zork Clone" type="462c0819:PsiDirectoryNode" />
-              <item name="CustomJ" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomJava" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Zork Clone" type="b2602c69:ProjectViewProjectNode" />
               <item name="Zork Clone" type="462c0819:PsiDirectoryNode" />
-              <item name="CustomJ" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomJava" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -382,12 +389,13 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\cutter.phillip\Documents\Zork Clone" />
+      <recent name="C:\Users\cutter.phillip\Documents\Zork Clone\CustomJava\src" />
       <recent name="C:\Users\cutter.phillip\Documents\Zork Clone\CustomJ\src" />
       <recent name="C:\Users\cutter.phillip\Documents\Zork Clone\Custom" />
       <recent name="C:\Users\cutter.phillip\Documents\Zork Clone\src" />
-      <recent name="C:\Users\cutter.phillip\Documents\Zork Clone\src\Text" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cutter.phillip\Documents\Zork Clone\CustomJava\src" />
       <recent name="C:\Users\cutter.phillip\Documents\Zork Clone" />
     </key>
   </component>
@@ -537,16 +545,15 @@
       <option name="presentableId" value="Default" />
       <updated>1506529398040</updated>
       <workItem from="1510070366807" duration="3386000" />
-      <workItem from="1510243073926" duration="1693000" />
+      <workItem from="1510243073926" duration="2548000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5079000" />
+    <option name="totallyTimeSpent" value="5934000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -556,9 +563,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32220367" sideWeight="0.5086342" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30756578" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30756578" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.4913658" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4913658" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18003026" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -699,7 +706,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CustomJ/src/Test.java">
+    <entry file="file://$PROJECT_DIR$/CustomJava/src/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
@@ -804,7 +811,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CustomJ/src/Test.java">
+    <entry file="file://$PROJECT_DIR$/CustomJava/src/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
@@ -954,26 +961,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/file.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-          <folding>
-            <element signature="n#!!block;n#office building#0;n#!!block;n#objs#0;n#!!block;n#scenario#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scenarios/BaseScenario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Objects/BaseObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
@@ -992,37 +979,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dynamic/DynamicManager.java">
+    <entry file="file://$PROJECT_DIR$/src/file.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="42" column="48" lean-forward="true" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
-          <folding />
+        <state relative-caret-position="187">
+          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <element signature="n#!!block;n#office building#0;n#!!block;n#objs#0;n#!!block;n#scenario#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomJava/src/Player.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#633#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Scenarios/BaseScenario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomJava/src/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="272">
+          <caret line="32" column="59" lean-forward="false" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
+          <folding>
+            <element signature="e#646#647#0" expanded="true" />
+            <element signature="e#703#704#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Objects/BaseJSONObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="55" column="45" lean-forward="false" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
+        <state relative-caret-position="203">
+          <caret line="59" column="15" lean-forward="false" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CustomJ/src/Test.java">
+    <entry file="file://$PROJECT_DIR$/src/Dynamic/DynamicManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="271">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
