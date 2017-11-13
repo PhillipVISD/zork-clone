@@ -50,7 +50,7 @@ public class TextInterpreter {
 	public static POSTaggerME getTagger() {
 		POSTaggerME tagger = null;
 
-		try (InputStream modelIn = TextInterpreter.class.getResourceAsStream("en-pos-maxent.bin")) {
+		try (InputStream modelIn = TextInterpreter.class.getResourceAsStream("en-pos-perceptron.bin")) {
 			POSModel model = new POSModel(modelIn);
 			tagger = new POSTaggerME(model);
 		} catch (IOException e) {
