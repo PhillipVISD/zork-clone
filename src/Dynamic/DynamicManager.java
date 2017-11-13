@@ -43,7 +43,6 @@ public class DynamicManager {
 			DynamicPL payload = new DynamicPL();
 			payload.setIn(verb, player, object);
 			out = (DynamicPL) m.invoke(null, (Object) payload);
-
 		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {

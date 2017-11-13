@@ -50,25 +50,27 @@ public class BaseJSONObject extends BaseObject {
 		}
 	}
 
-	public String verbAction(String verb, Player player) {
+	public DynamicPL verbAction(String verb, Player player) {
+		DynamicPL pl = new DynamicPL();
+		pl.setIn(verb, player, this);
 		if (this.classBehaviour.containsKey(verb)) {
 			DynamicManager dm = this.getDynamicManager(this.classBehaviour.get(verb));
-			DynamicPL result = dm.method(this, verb, player);
-			return result.response;
+			pl = dm.method(this, verb, player);
 		}
 		else if (this.behaviour.containsKey(verb)) {
 			String[] responses = behaviour.get(verb);
 			if (responses.length >= 1) {
 				int i = new Random().nextInt(responses.length);
-				return responses[i];
+				pl.response = responses[i];
 			}
 			else {
-				return "You " + verb.toLowerCase() + " the " + this.getName() + ".";
+				pl.response =  "You " + verb.toLowerCase() + " the " + this.getName() + ".";
 			}
 		}
 		else {
 			// JSON Object does not define what to do in this context
-			return this.illegal();
+			pl.response = this.illegal();
 		}
+		return pl;
 	}
 }

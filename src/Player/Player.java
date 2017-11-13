@@ -30,7 +30,7 @@ public class Player {
 	}
 
 	public String describeInventory() {
-		return EnglishFactory.fromGameObjs(this.inventory);
+		return EnglishFactory.fromGameObjs(this.inventory, true);
 	}
 
 	public void addToInventory(BaseObject object) {

@@ -1,5 +1,6 @@
 package Text;
 
+import Dynamic.DynamicPL;
 import Objects.BaseJSONObject;
 import Objects.BaseObject;
 import Player.Player;
@@ -134,6 +135,7 @@ public class TextInterpreter {
 
 				if (subjectObj != null) {
 					response = this.actionOnObj(subjectObj, verb.trim(), this.player);
+//					System.out.println(this.player.describeInventory());
 //					response = subjectObj.action(verb.trim(), this.player);
 				} else {
 					response = "There is nothing called \"" + subject + "\" in the scene.";
@@ -147,7 +149,12 @@ public class TextInterpreter {
 				endResponse.append(response).append("\n");
 			}
 		} else if (verb == null) {
-			endResponse.append("There is no verb in this action.");
+			if (subjects.size() == 1 && subjects.get(0).equals("inventory")) {
+				endResponse.append(this.player.describeInventory());
+			}
+			else {
+				endResponse.append("There is no verb in this action.");
+			}
 		} else if (!responded) {
 			String response = this.player.getScope().action(verb);
 			if (response != null) {
@@ -166,21 +173,11 @@ public class TextInterpreter {
 		String response;
 
 		BaseJSONObject jsonObj = (BaseJSONObject) subjectObj;
+		DynamicPL pl = jsonObj.verbAction(verb, player);
 
-		return jsonObj.verbAction(verb, player);
+		this.player = pl.player;
 
-//		if (verb.equals("pick")) {
-//			response = subjectObj.pickup(player);
-//		} else if (verb.equals("enter")) {
-//			response = subjectObj.enter(player);
-//		}
-////		else if (verb.equals("exit") || verb.equals("leave")) {
-////			response = subjectObj.exit(player);
-////		}
-//		else {
-//			response = subjectObj.illegal();
-//		}
-//		return response;
+		return pl.response;
 	}
 
 	private String[] removeFromStringFromArray(String[] arr, String remove) {

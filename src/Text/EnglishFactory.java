@@ -6,19 +6,35 @@ import java.util.List;
 
 public class EnglishFactory {
 	public static String fromGameObjs(List<BaseObject> objects) {
+		return fromGameObjs(objects, false);
+	}
+
+	public static String fromGameObjs(List<BaseObject> objects, boolean inventory) {
 
 		if (objects.size() <= 0) {
-			return "There is nothing around.";
+			if (inventory) {
+				return "You have nothing.";
+			}
+			else {
+				return "There is nothing around.";
+			}
 		}
 
-		StringBuilder englishStr = new StringBuilder("There ");
+		StringBuilder englishStr = new StringBuilder();
 		String item;
 
-		if (objects.get(0).isPlural) {
-			englishStr.append("are ");
+		if (inventory) {
+			englishStr.append("You have ");
 		}
 		else {
-			englishStr.append("is ");
+			englishStr.append("There ");
+
+			if (objects.get(0).isPlural) {
+				englishStr.append("are ");
+			}
+			else {
+				englishStr.append("is ");
+			}
 		}
 
 		for (final BaseObject object : objects) {
