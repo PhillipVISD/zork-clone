@@ -23,7 +23,7 @@
 		"preDesc": "heavy silver",
 		"postDesc": ""
 	  },
-	  "office building": {
+	  "note": {
 		"methods": {
 		  "grab": {
 			"responses": [
@@ -38,29 +38,49 @@
 
 		  }
 		},
+		"determiner": "a",
+		"animate": false,
+		"preDesc": "small",
+		"postDesc": ""
+	  },
+	  "house": {
 		"objs": {
-		  "sword": {
+		  "door": {
 			"methods": {
-			  "grab": {
+			  "enter": {
 				"responses": [
-				  "You pickup the sword and feel the looming weight in your hands."
+				  "The door is locked.",
+				  "The turn the knob but it does not budge."
 				],
 				"valid": true
 			  }
 			},
-			"objs": {
-
+			"determiner": "a",
+			"preDesc": "small"
+		  },
+		  "window": {
+			"methods": {
+			  "enter": {
+				"responses": [
+					"You should not see this message."
+				],
+				"valid": true,
+				"class": "Test"
+			  }
 			},
 			"determiner": "a",
-			"animate": false,
-			"preDesc": "heavy silver",
-			"postDesc": ""
+			"preDesc": "cracked"
+		  }
+		},
+		"methods": {
+		  "enter": {
+			"responses": [],
+			"valid": true,
+			"class": "Test"
 		  }
 		},
 		"determiner": "a",
-		"animate": false,
-		"preDesc": "large bland",
-		"postDesc": ""
+		"preDesc": "distant white"
 	  }
 	}
   }

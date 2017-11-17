@@ -27,4 +27,25 @@ public class Test {
 
 		return pl;
 	}
+
+	public static DynamicPL enter(DynamicPL pl) {
+		BaseObject object = pl.object;
+
+		if (object.getName().equals("window")) {
+			Player player = pl.player;
+			player.scope = object;
+			pl.setOut("You budge the window open enough to stumbile inside.", player);
+			return pl;
+		}
+		else if (object.getName().equals("house")) {
+			Player player = pl.player;
+			player.scope = object;
+			pl.setOut("You hear birds chirping on your way to the house.", player);
+			return pl;
+		}
+		else {
+			pl.setOut("Invalid object: " + object.getName(), pl.player);
+			return pl;
+		}
+	}
 }

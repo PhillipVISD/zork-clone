@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class TextInterpreter {
@@ -22,6 +21,12 @@ public class TextInterpreter {
 	public Tokenizer tokenizer = null;
 	public POSTaggerME tagger = null;
 
+	/**
+	 * The constructor for the TextInterpreter.
+	 * @param player The player object that is used.
+	 * @param initVars Whether or not it should initialize the Tokenizer and POSTagger.
+	 * @throws IOException An exception that can occur when the Tokenizer or Tagger are not found.
+	 */
 	public TextInterpreter(Player player, Boolean initVars) throws IOException {
 		this.player = player;
 
@@ -34,6 +39,10 @@ public class TextInterpreter {
 		}
 	}
 
+	/**
+	 * Returns a Tokenizer object after being loaded from the filesystem.
+	 * @return The loaded Tokenizer object.
+	 */
 	public static Tokenizer getTokenizer() {
 		Tokenizer tokenizer = null;
 
@@ -47,6 +56,10 @@ public class TextInterpreter {
 		return tokenizer;
 	}
 
+	/**
+	 * Returns a POSTaggerME object after being loaded from the filesystem.
+	 * @return The loaded POSTaggerME object.
+	 */
 	public static POSTaggerME getTagger() {
 		POSTaggerME tagger = null;
 
@@ -60,6 +73,16 @@ public class TextInterpreter {
 		return tagger;
 	}
 
+	/**
+	 * Takes a string and interprets it in the game's context. This is used whn you don't wnat every TextInterpeter
+	 * object to have an instance of a POSTaggerME and a Tokenizer.
+	 * @param interpretStr The string to interpret.
+	 * @param tokenizer The Tokenizer to be used.
+	 * @param tagger The POSTaggerME to be used.
+	 * @param player The Player object to be interpreted.
+	 * @return A string 
+	 * @throws IOException
+	 */
 	public static String interpret(String interpretStr, Tokenizer tokenizer, POSTaggerME tagger, Player player) throws IOException {
 		TextInterpreter ti = new TextInterpreter(player, false);
 		ti.tokenizer = tokenizer;
@@ -67,6 +90,11 @@ public class TextInterpreter {
 		return ti.interpret(interpretStr);
 	}
 
+	/**
+	 * Takes a string of input from the user, parses it, acts upon it, and returns a response as a String.
+	 * @param interpretStr The string to be interpreted.
+	 * @return The response from the command as a String.
+	 */
 	public String interpret(String interpretStr) {
 		String[] words = this.tokenizer.tokenize(interpretStr.toLowerCase());
 		String[] tags = this.tagger.tag(words);
@@ -168,6 +196,13 @@ public class TextInterpreter {
 		return endResponse.toString();
 	}
 
+	/**
+	 * Perform an action on a specific object.
+	 * @param subjectObj The object to be have the action to be applied to.
+	 * @param verb The action to be performed.
+	 * @param player The player that may be modified by the action.
+	 * @return The string response from the object.
+	 */
 	private String actionOnObj(BaseObject subjectObj, String verb, Player player) {
 		verb = verb.toLowerCase();
 		String response;
@@ -180,16 +215,10 @@ public class TextInterpreter {
 		return pl.response;
 	}
 
-	private String[] removeFromStringFromArray(String[] arr, String remove) {
-		List<String> result = new ArrayList<>();
-		for (String str : arr) {
-			if (!str.equals(remove)) {
-				result.add(str);
-			}
-		}
-		return result.toArray(new String[0]);
-	}
-
+	/**
+	 * Returns a player
+	 * @return
+	 */
 	public Player getPlayer() {
 		return player;
 	}

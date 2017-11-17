@@ -15,6 +15,15 @@ import java.io.InputStream;
 
 public class Game {
 
+	/**
+	 * This is the main function it load all other required classes and get into an interactive game of Zork.
+	 * @param args Command-line arguments, -json can be passed to use a JSON file as the story source.
+	 * @throws IOException Exception when reading IO input.
+	 * @throws ParseException Exception while parsing JSON.
+	 * @throws org.apache.commons.cli.ParseException Exception when parsing CLI arguments.
+	 * @throws ClassNotFoundException Exception while looking for custom behaviour class.
+	 */
+
 	public static void main(String[] args) throws IOException, ParseException, org.apache.commons.cli.ParseException, ClassNotFoundException {
 		Options options = new Options();
 		options.addOption("json", true, "pass a valid JSON file to run your own story.");
@@ -69,6 +78,12 @@ public class Game {
 		}
 	}
 
+
+	/**
+	 * Converts a InputStream object to a string.
+	 * @param is The input stream to be converted.
+	 * @return The String version of the InputStream.
+	 */
 	static String convertStreamToString(java.io.InputStream is) {
 		java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
 		return s.hasNext() ? s.next() : "";

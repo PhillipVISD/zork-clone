@@ -2,7 +2,6 @@ package Objects;
 
 import Player.Player;
 import Text.EnglishFactory;
-import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 
@@ -11,6 +10,15 @@ import java.util.ArrayList;
  * by other game objects.
  */
 abstract public class BaseObject {
+
+	/**
+	 * Initializes a BaseObject.
+	 * @param name The name of the object.
+	 * @param determiner What determiner should be used like 'a' or 'the'.
+	 * @param animate Whether or not the object is animate (alive).
+	 * @param canContain Whether or not the object can contain other objects.
+	 * @param objArr The ArrayList of the objects to contain, null if none.
+	 */
 	public BaseObject(String name, String determiner, Boolean animate, Boolean canContain, ArrayList<BaseObject> objArr) {
 		this.name = name;
 		this.determiner = determiner;
@@ -27,12 +35,15 @@ abstract public class BaseObject {
 		}
 	}
 
+	/**
+	 * A constructor signature with no need for an objArr to be passed.
+	 * @param name The name of the object.
+	 * @param determiner What determiner should be used like 'a' or 'the'.
+	 * @param animate Whether or not the object is animate (alive).
+	 * @param canContain Whether or not the object can contain other objects.
+	 */
 	public BaseObject(String name, String determiner, Boolean animate, Boolean canContain) {
 		this(name, determiner, animate, canContain, null);
-	}
-
-	public static BaseObject fromJson(JSONObject jsonObj) {
-		return new BaseJSONObject("a", "a", true, true, new ArrayList<BaseObject>(), "a", "a");
 	}
 
 	public ArrayList<BaseObject> getGameObjects() {
@@ -40,7 +51,11 @@ abstract public class BaseObject {
 	}
 
 
-
+	/**
+	 * Attempts to get another BaseObject in this objects direct children.
+	 * @param name The name of the object to try to find.
+	 * @return The BaseObject if found, otherwise null.
+	 */
 	public BaseObject getObjectByName(String name) {
 		for (BaseObject obj : this.gameObjects) {
 			if (obj.getName().equals(name)) {
@@ -50,12 +65,22 @@ abstract public class BaseObject {
 		return null;
 	}
 
+	/**
+	 * Describes this object in human readable text using EnglishFactory.
+	 * @return A string of text that describes the object.
+	 * @see EnglishFactory
+	 */
 	public String describe() {
 		return EnglishFactory.fromGameObjs(this.getGameObjects());
 	}
 
 	private ArrayList<BaseObject> gameObjects; // Array of game objects this scope contains
 
+	/**
+	 * Perform an action on this specific BaseObject, usually meant to be overridden.
+	 * @param verb The verb or action to perform
+	 * @return A string of the result.
+	 */
 	public String action(String verb) {
 		verb = verb.toLowerCase();
 		if (verb.equals("inspect") ||
@@ -66,6 +91,10 @@ abstract public class BaseObject {
 		return null;
 	}
 
+	/**
+	 * Allows the BaseObject child object to easily be changed after it has been instantiated.
+	 * @param objArr The objects it should now contain.
+	 */
 	public void setGameObjects(ArrayList<BaseObject> objArr) {
 		this.gameObjects = objArr;
 		if (objArr != null) {
@@ -89,18 +118,14 @@ abstract public class BaseObject {
 
 	public BaseObject parent = null; // The parent of this game object
 
-	public void talk() {
-		if (this.animate) {
-			System.out.println("Undefined speech of object.");
-		} else {
-			System.out.println("You cannot talk to an inanimate object.");
-		}
-	}
-
 	public String getName() {
 		return this.name;
 	}
 
+	/**
+	 * Gets a description string of this object using the name, preDesc, and postDesc.
+	 * @return A string describing the object.
+	 */
 	public String getDescription() {
 		StringBuilder desc = new StringBuilder();
 		desc.append(this.determiner);
@@ -115,20 +140,20 @@ abstract public class BaseObject {
 		return desc.toString();
 	}
 
+	/**
+	 * A very simple method that returns a string signifying the action was illegal.
+	 * @return A string signifying the action was illegal.
+	 */
 	public String illegal() {
 		return "You cannot do that!";
 	}
 
-	public String enter(Player player) {
-		if (this.canContain) {
-			player.scope = this;
-			return "You enter " + this.determiner + " " + this.name + "\n" + this.describe();
-		}
-		else {
-			return "You can't enter a " + this.name;
-		}
-	}
-
+	/**
+	 * Called when trying to exit or leave an object. If you are in a house and you say "leave house" this method will
+	 * be called on the house object.
+	 * @param player The player that is exiting.
+	 * @return A string signifying whether or not the action was valid.
+	 */
 	public String exit(Player player) {
 		if (this.parent != null) {
 			player.scope = this.parent;
@@ -138,10 +163,6 @@ abstract public class BaseObject {
 			return "Nice try, you can't escape that easily.";
 		}
 	}
-
-	public String pickup(Player player) {
-		return illegal();
-	};
 }
 
 

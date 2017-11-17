@@ -13,6 +13,11 @@ import java.net.URLClassLoader;
 public class DynamicManager {
 	public Class cls;
 
+	/**
+	 * A DynamicManager manages the interactions with a class that is dynamically loaded at runtime.
+	 * @param className The name of the class that should be loaded and managed by this DynamicManager.
+	 */
+
 	public DynamicManager(String className) {
 //		ClassLoader classLoader = new URLClassLoader(new URL[] {new URL("file:/C:\\Users\\cutter.phillip\\Documents\\Zork Clone")});
 
@@ -36,6 +41,14 @@ public class DynamicManager {
 		}
 	}
 
+	/**
+	 * This method simplifies the calling of static behaviour methods. It will call a method on the loaded class with
+	 * a name.
+	 * @param object The object that the action is happening to.
+	 * @param verb The action word exactly, used to lookup what method to call.
+	 * @param player The player that can be modified by the method that will be invoked.
+	 * @return The Dynamic Payload response.
+	 */
 	public DynamicPL method(BaseObject object, String verb, Player player) {
 		DynamicPL out = null;
 		try {

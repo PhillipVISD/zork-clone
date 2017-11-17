@@ -5,10 +5,21 @@ import Objects.BaseObject;
 import java.util.List;
 
 public class EnglishFactory {
+	/**
+	 * Another signature for fromGameObjs only requiring a List of BaseObjects.
+	 * @param objects a List of BaseObjects.
+	 * @return A human-readable description of the objects as a String.
+	 */
 	public static String fromGameObjs(List<BaseObject> objects) {
 		return fromGameObjs(objects, false);
 	}
 
+	/**
+	 * Takes a list of objects and converts into a description String for humans.
+	 * @param objects A List of BaseObjects to be converted into a String.
+	 * @param inventory Whether it should say "You have" (true) or "There is" (false).
+	 * @return Returns a String that describes the BaseObjects passed in.
+	 */
 	public static String fromGameObjs(List<BaseObject> objects, boolean inventory) {
 
 		if (objects.size() <= 0) {

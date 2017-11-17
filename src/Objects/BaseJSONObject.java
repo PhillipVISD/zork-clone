@@ -13,6 +13,16 @@ public class BaseJSONObject extends BaseObject {
 
 	DynamicManager dm;
 
+	/**
+	 * Initializes variables on the object.
+	 * @param name The name of the object.
+	 * @param determiner What determiner to use like 'a' or 'the'.
+	 * @param animate Whether the object is animate (alive).
+	 * @param canContain Whether the object can contain other objects inside of it.
+	 * @param objs The ArrayList of object it contains, null if none.
+	 * @param preDesc The description of the object before the name.
+	 * @param postDesc The description of the object after the name.
+	 */
 	public BaseJSONObject(String name, String determiner, Boolean animate, Boolean canContain,
 	                      ArrayList<BaseObject> objs, String preDesc, String postDesc) {
 		super(name, "a", false, true, objs);
@@ -39,6 +49,12 @@ public class BaseJSONObject extends BaseObject {
 		this.classBehaviour.put(action, behaviour);
 	}
 
+	/**
+	 * Gets and returns a DynamicManager object, it will create one and add it to its cache if it did not exist before.
+	 * @param className The name nof the class for the DynamicManager object.
+	 * @return The DynamicManager object.
+	 * @see DynamicManager
+	 */
 	private DynamicManager getDynamicManager(String className) {
 		if (this.dynamicManagers.containsKey(className)) {
 			return dynamicManagers.get(className);
@@ -50,6 +66,13 @@ public class BaseJSONObject extends BaseObject {
 		}
 	}
 
+	/**
+	 * Performs an action on the object with a verb and player object.
+	 * @param verb The verb or action that is being done.
+	 * @param player The player object that is being manipulated, usually the player that said the command.
+	 * @return A DynamicPL object with the out parameters like Player and a response String.
+	 * @see DynamicPL
+	 */
 	public DynamicPL verbAction(String verb, Player player) {
 		DynamicPL pl = new DynamicPL();
 		pl.setIn(verb, player, this);
