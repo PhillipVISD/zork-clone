@@ -1,6 +1,10 @@
 import Dynamic.DynamicPL;
 import Player.Player;
 import Objects.BaseObject;
+import Text.TextInterpreter;
+
+import java.util.Random;
+
 
 public class Test {
 	public static void main(String[] args) {
@@ -34,7 +38,7 @@ public class Test {
 		if (object.getName().equals("window")) {
 			Player player = pl.player;
 			player.scope = object;
-			pl.setOut("You budge the window open enough to stumbile inside.", player);
+			pl.setOut("You budge the window open enough to stumble inside.", player);
 			return pl;
 		}
 		else if (object.getName().equals("house")) {
@@ -47,5 +51,26 @@ public class Test {
 			pl.setOut("Invalid object: " + object.getName(), pl.player);
 			return pl;
 		}
+	}
+
+	public static String interpret(String str, TextInterpreter ti, Player player) {
+		Random random = new Random();
+
+		int randInt = random.nextInt(10 - 1 + 1) + 1;
+
+		if (Integer.toString(randInt).equals(str)) {
+			return "You win!";
+		}
+		else {
+			return "Nope, it was " + Integer.toString(randInt);
+		}
+	}
+
+	public static DynamicPL play(DynamicPL pl) {
+		BaseObject object = pl.object;
+		Player player = pl.player;
+		player.scope = object;
+		pl.setOut("You hear whirrrrr as the old machine comes to life.", player);
+		return pl;
 	}
 }
