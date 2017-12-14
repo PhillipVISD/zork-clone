@@ -1,7 +1,7 @@
-import Dynamic.DynamicPL;
-import Player.Player;
-import Objects.BaseObject;
-import Text.TextInterpreter;
+import org.vashonsd.zork.Dynamic.DynamicPL;
+import org.vashonsd.zork.Player.Player;
+import org.vashonsd.zork.Objects.BaseObject;
+import org.vashonsd.zork.Text.TextInterpreter;
 
 import java.util.Random;
 
